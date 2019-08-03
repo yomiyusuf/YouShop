@@ -29,17 +29,17 @@ class ProductView : LinearLayout {
     fun setView(product: Product, listener: ProductClickHandler?) {
         this.setOnClickListener { listener?.onProductClick(product) }
         txt_title_product.text = product.name
-        txt_price_product.text = product.price.toString()
-        if (product.previousPrice != null) {
-            txt_previous_price_product.text = "Was ${product.previousPrice?.toString()}"
-            txt_previous_price_product.setTextColor(context.resources.getColor(R.color.red))
+        txt_price_product.text = "$${java.text.NumberFormat.getIntegerInstance().format(product.price)}"
+        if (product.isOnSale()) {
+            txt_previous_price_product.text = "${context.getString(R.string.was)} $${java.text.NumberFormat.getIntegerInstance().format(product.previousPrice)}"
+            txt_price_product.setTextColor(context.resources.getColor(R.color.red))
         } else {
-            txt_previous_price_product.setTextColor(context.resources.getColor(R.color.black))
+            txt_price_product.setTextColor(context.resources.getColor(R.color.black))
         }
 
         Picasso.get()
             .load(product.image)
-            .placeholder(R.drawable.catalogues_watermark)
+            .placeholder(R.drawable.image_placeholder)
             .into(image_product)
     }
 }

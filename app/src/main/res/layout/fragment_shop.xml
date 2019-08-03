@@ -6,7 +6,7 @@
              tools:context=".ui.FragmentShop">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_plp_products"
+            android:id="@+id/rv_products"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"

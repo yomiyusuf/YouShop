@@ -8,14 +8,13 @@ import com.yomi.youshop.model.Product
 import com.yomi.youshop.ui.view.ProductView
 
 
-class ProductListAdapter(private val context: Context, val listener: PLPProductClickListner):
-        RecyclerView.Adapter<ProductListAdapter.ViewHolder>(), ProductView.ProductClickHandler {
+class AdapterProductList(private val context: Context, val listener: PLPProductClickListner):
+        RecyclerView.Adapter<AdapterProductList.ViewHolder>(), ProductView.ProductClickHandler {
 
     private var products = mutableListOf<Product>()
 
     interface PLPProductClickListner{
-        fun onProductClicked(product: Product, position: Int?)
-        fun onQuickLookClicked(product: Product, position: Int?)
+        fun onProductClicked(product: Product)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -49,7 +48,6 @@ class ProductListAdapter(private val context: Context, val listener: PLPProductC
     }
 
     override fun onProductClick(product: Product) {
-        val position = products?.indexOf(product)
-        listener.onProductClicked(product, position)
+        listener.onProductClicked(product)
     }
 }
