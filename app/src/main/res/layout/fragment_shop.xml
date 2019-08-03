@@ -5,9 +5,15 @@
              android:layout_height="match_parent"
              tools:context=".ui.FragmentShop">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_plp_products"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/title_shop"/>
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:clipToPadding="false"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            tools:listitem="@layout/card_product" />
 
 </FrameLayout>
