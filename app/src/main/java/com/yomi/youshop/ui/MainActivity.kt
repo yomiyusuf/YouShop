@@ -1,25 +1,23 @@
-package com.yomi.youshop
+package com.yomi.youshop.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
+import androidx.fragment.app.Fragment
+import com.yomi.youshop.R
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var textMessage: TextView
+    val fm = supportFragmentManager
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.navigation_home -> {
-                textMessage.setText(R.string.title_home)
+            R.id.navigation_shop -> {
+                loadShopFragment()
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                textMessage.setText(R.string.title_dashboard)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_notifications -> {
-                textMessage.setText(R.string.title_notifications)
+            R.id.navigation_cart -> {
+                loadCartFragment()
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -30,8 +28,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        loadShopFragment()
 
-        textMessage = findViewById(R.id.message)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+    }
+
+    fun loadShopFragment(){
+        startFragment(FragmentShop(), "Shop", false)
+    }
+
+    fun loadCartFragment(){
+        startFragment(FragmentCart(), "Cart")
+    }
+
+    private fun startFragment(fragment: Fragment, tag: String, addToBackStack: Boolean = true){
+        val transaction = fm.beginTransaction()
+            .replace(R.id.main_content, fragment, tag)
+        if (addToBackStack) transaction.addToBackStack(null)
+        transaction.commit()
     }
 }
