@@ -29,9 +29,9 @@ class ProductView : LinearLayout {
     fun setView(product: Product, listener: ProductClickHandler?) {
         this.setOnClickListener { listener?.onProductClick(product) }
         txt_title_product.text = product.name
-        txt_price_product.text = "$${java.text.NumberFormat.getIntegerInstance().format(product.price)}"
+        txt_price_product.text = product.displayPrice()
         if (product.isOnSale()) {
-            txt_previous_price_product.text = "${context.getString(R.string.was)} $${java.text.NumberFormat.getIntegerInstance().format(product.previousPrice)}"
+            txt_previous_price_product.text = "${context.getString(R.string.was)} ${product.displayPreviousPrice()}"
             txt_price_product.setTextColor(context.resources.getColor(R.color.red))
         } else {
             txt_price_product.setTextColor(context.resources.getColor(R.color.black))

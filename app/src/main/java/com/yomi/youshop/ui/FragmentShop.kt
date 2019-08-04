@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.yomi.youshop.R
 import com.yomi.youshop.model.Product
 import com.yomi.youshop.ui.view.ProductGridItemDecoration
+import com.yomi.youshop.viewModel.ViewModelProducts
 import kotlinx.android.synthetic.main.fragment_shop.*
 
 class FragmentShop : Fragment(), AdapterProductList.PLPProductClickListner {
@@ -53,6 +53,7 @@ class FragmentShop : Fragment(), AdapterProductList.PLPProductClickListner {
     }
 
     override fun onProductClicked(product: Product) {
-        (activity as MainActivity)
+        viewmodel.setSelectedProduct(product)
+        (activity as ActivityMain).loadDetailFragment()
     }
 }
