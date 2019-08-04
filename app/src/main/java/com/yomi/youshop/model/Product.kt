@@ -1,5 +1,6 @@
 package com.yomi.youshop.model
 
+import com.yomi.youshop.util.Utils
 import java.math.BigDecimal
 
 class Product(
@@ -15,15 +16,11 @@ class Product(
     }
 
     fun displayPrice(): String{
-        return formatToCurrency(price)
+        return "$${Utils.toCurrencyFormat(price)}"
     }
 
     fun displayPreviousPrice(): String {
-        previousPrice?.run{return formatToCurrency(this)}
+        previousPrice?.run{return "$${Utils.toCurrencyFormat(this)}"}
         return ""
-    }
-
-    private fun formatToCurrency(price: BigDecimal): String{
-        return "$${java.text.NumberFormat.getIntegerInstance().format(price)}"
     }
 }

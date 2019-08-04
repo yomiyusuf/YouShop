@@ -28,8 +28,10 @@ class ActivityMain : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        loadShopFragment()
 
+        if(savedInstanceState == null){
+            loadShopFragment()
+        }
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 

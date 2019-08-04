@@ -6,4 +6,8 @@
     <string name="image_detail">Image Detail</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="added_to_cart_msg">Product was added to cart</string>
+    <string name="deleted_from_cart_msg">Product was deleted from cart</string>
+    <string name="reduced">Reduced</string>
+    <string name="number_of_items">Number of items</string>
+    <string name="total_before_tax">Total before tax</string>
 </resources>

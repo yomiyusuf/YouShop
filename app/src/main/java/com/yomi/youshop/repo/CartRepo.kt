@@ -1,5 +1,6 @@
 package com.yomi.youshop.repo
 
+import com.yomi.youshop.model.CartDetails
 import com.yomi.youshop.model.CartItem
 import com.yomi.youshop.model.Product
 
@@ -15,7 +16,7 @@ class CartRepo {
     }
 
     fun isInCart(product: Product): Boolean{
-        val item = cart.find { c -> c.productCode == product.code }
+        val item = cart.find { it.productCode == product.code }
         return item != null
     }
 
@@ -28,15 +29,15 @@ class CartRepo {
     }
 
     fun incrementCount(product: Product){
-        (cart.find { c -> c.productCode == product.code })!!.quantity += 1
+        (cart.find { it.productCode == product.code })!!.quantity += 1
     }
 
     fun decrementCount(product: Product){
-        (cart.find { c -> c.productCode == product.code })!!.quantity -= 1
+        (cart.find { it.productCode == product.code })!!.quantity -= 1
     }
 
-    fun removeFromCart(product: Product){
-        val item = cart.find { c -> c.productCode == product.code }
+    fun removeFromCart(cartItem: CartItem){
+        val item = cart.find { it.productCode == cartItem.productCode }
         item?.run{
             cart.remove(item)
         }

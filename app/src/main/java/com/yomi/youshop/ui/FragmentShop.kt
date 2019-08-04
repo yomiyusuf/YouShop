@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.yomi.youshop.R
 import com.yomi.youshop.model.Product
+import com.yomi.youshop.ui.adapter.AdapterProductList
 import com.yomi.youshop.ui.view.ProductGridItemDecoration
 import com.yomi.youshop.viewModel.ViewModelProducts
 import kotlinx.android.synthetic.main.fragment_shop.*
 
-class FragmentShop : Fragment(), AdapterProductList.PLPProductClickListner {
+class FragmentShop : Fragment(), AdapterProductList.ProductClickListner {
 
     private lateinit var viewmodel: ViewModelProducts
     private lateinit var adapter: AdapterProductList

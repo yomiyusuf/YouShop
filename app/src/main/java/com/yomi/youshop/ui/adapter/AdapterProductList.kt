@@ -1,4 +1,4 @@
-package com.yomi.youshop.ui
+package com.yomi.youshop.ui.adapter
 
 import android.content.Context
 import android.view.View
@@ -8,12 +8,12 @@ import com.yomi.youshop.model.Product
 import com.yomi.youshop.ui.view.ProductView
 
 
-class AdapterProductList(private val context: Context, val listener: PLPProductClickListner):
+class AdapterProductList(private val context: Context, val listener: ProductClickListner):
         RecyclerView.Adapter<AdapterProductList.ViewHolder>(), ProductView.ProductClickHandler {
 
     private var products = mutableListOf<Product>()
 
-    interface PLPProductClickListner{
+    interface ProductClickListner{
         fun onProductClicked(product: Product)
     }
 
