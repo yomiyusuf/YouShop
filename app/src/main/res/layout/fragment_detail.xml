@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.FragmentShop">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidline_50"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5"
+    />
+
+    <ImageView
+            android:id="@+id/image_detail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guidline_50"
+            android:contentDescription="@string/image_detail"
+    />
+
+    <TextView
+            android:id="@+id/txt_title_product_detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_detail"
+            tools:text="Bamboo Foldable Shelving" />
+
+    <TextView
+            android:id="@+id/txt_price_product_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/txt_title_product_detail"
+            app:layout_constraintTop_toBottomOf="@id/txt_title_product_detail"
+            tools:text="$70" />
+
+    <TextView
+            android:id="@+id/txt_previous_price_product_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/grey_medium"
+            android:textSize="15sp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/txt_price_product_detail"
+            app:layout_constraintBaseline_toBaselineOf="@id/txt_price_product_detail"
+            tools:text="Was $99"/>
+
+    <TextView
+            android:id="@+id/txt_description_detail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/grey_dark"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            app:layout_constraintStart_toStartOf="@id/txt_title_product_detail"
+            app:layout_constraintEnd_toEndOf="@id/txt_title_product_detail"
+            app:layout_constraintTop_toBottomOf="@id/txt_price_product_detail"
+            tools:text="Pixel 3 and Pixel 3 XL are everything you wish your phone could do. Brilliant camera, all day battery, and Google Assistant with a squeeze"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/btn_add_to_cart"/>
+
+    <Button
+            android:id="@+id/btn_add_to_cart"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/add_to_cart"
+            android:textColor="@color/white"
+            android:background="@drawable/button_background"
+            android:layout_margin="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

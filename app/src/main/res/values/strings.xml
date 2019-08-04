@@ -3,4 +3,7 @@
     <string name="title_shop">Shop</string>
     <string name="title_cart">Cart</string>
     <string name="was">Was</string>
+    <string name="image_detail">Image Detail</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="added_to_cart_msg">Product was added to cart</string>
 </resources>

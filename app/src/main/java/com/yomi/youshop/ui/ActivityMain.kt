@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.yomi.youshop.R
 
-class MainActivity : AppCompatActivity() {
+class ActivityMain : AppCompatActivity() {
 
     val fm = supportFragmentManager
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -39,6 +39,10 @@ class MainActivity : AppCompatActivity() {
 
     fun loadCartFragment(){
         startFragment(FragmentCart(), "Cart")
+    }
+
+    fun loadDetailFragment(){
+        startFragment(FragmentDetail(), "Detail")
     }
 
     private fun startFragment(fragment: Fragment, tag: String, addToBackStack: Boolean = true){

@@ -13,4 +13,17 @@ class Product(
     fun isOnSale(): Boolean {
         return previousPrice != null
     }
+
+    fun displayPrice(): String{
+        return formatToCurrency(price)
+    }
+
+    fun displayPreviousPrice(): String {
+        previousPrice?.run{return formatToCurrency(this)}
+        return ""
+    }
+
+    private fun formatToCurrency(price: BigDecimal): String{
+        return "$${java.text.NumberFormat.getIntegerInstance().format(price)}"
+    }
 }
