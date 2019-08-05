@@ -10,6 +10,7 @@ import com.yomi.youshop.R
 class ActivityMain : AppCompatActivity() {
 
     val fm = supportFragmentManager
+    lateinit var navView: BottomNavigationView
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_shop -> {
@@ -27,7 +28,7 @@ class ActivityMain : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView = findViewById(R.id.nav_view)
 
         if(savedInstanceState == null){
             loadShopFragment()
@@ -52,5 +53,18 @@ class ActivityMain : AppCompatActivity() {
             .replace(R.id.main_content, fragment, tag)
         if (addToBackStack) transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    override fun onBackPressed() {
+        val selectedItemId = navView.selectedItemId
+        if(R.id.navigation_shop != selectedItemId){
+            setHomeItem()
+        } else{
+            super.onBackPressed()
+        }
+    }
+
+    private fun setHomeItem(){
+        navView.selectedItemId = R.id.navigation_shop
     }
 }
